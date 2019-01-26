@@ -50,6 +50,7 @@
 /* USER CODE BEGIN Includes */
 #include "Pingpong_function.h"
 #include "clockinit.h" 
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -224,7 +225,7 @@ int main(void)
 //
 //
 // }
- j=0;
+int j=0;
  while (1)
  {
  if ( L_hit() == true ) // Wait for left button hit

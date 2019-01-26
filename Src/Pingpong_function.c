@@ -62,10 +62,22 @@ void Led_on(uint8_t Lednr)
 @param void
 @return bool, true if L button pushed, false otherwise
 */
-bool L_hit(void);
+bool L_hit(void)
+{
+   if(HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0)
+   return true;
+   else
+     return false;
+}
 /**
 @brief R_hit, check if R button is pressed
 @param void
 @return bool, true if R button pushed, false otherwise
 */
-bool R_hit(void);
+bool R_hit(void)
+{
+   if( HAL_GPIO_ReadPin(R_BUTTON_GPIO_Port, R_BUTTON_Pin) == 0)
+     return true;
+   else
+     return false;
+}
