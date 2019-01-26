@@ -1,0 +1,15 @@
+"C:\Users\fy\Documents\IAR\arm\bin\armproc.dll" 
+
+"C:\Users\fy\Documents\IAR\arm\bin\armstlink2.dll" 
+
+"C:\Users\fy\Documents\Inbyggda_VT19\Egna_projekt\Pingpong\EWARM\Pingpong\Exe\Pingpong.out" 
+
+--plugin="C:\Users\fy\Documents\IAR\arm\bin\armbat.dll" 
+
+--device_macro="C:\Users\fy\Documents\IAR\arm\config\debugger\ST\STM32F3xx.dmac" 
+
+--flash_loader="C:\Users\fy\Documents\IAR\arm\config\flashloader\ST\FlashSTM32F3xxxC.board" 
+
+
+
+
