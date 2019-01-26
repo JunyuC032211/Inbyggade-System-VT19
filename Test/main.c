@@ -176,8 +176,9 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
+   HAL_Init();
+   //HAL_Delay(100);
+ 
   /* USER CODE BEGIN Init */
  
   /* USER CODE END Init */
@@ -196,37 +197,88 @@ int main(void)
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
   
-/* printf("Test av funktion Led_on");
- int Led;
- for (Led=1; Led<= 9; Led++) {
- Led_on(Led);
- HAL_Delay(500); // Delay 500 ms
- }*/
-  /* USER CODE END 2 */
+    /* printf("Test av funktion Led_on");
+   int Led;
+   for (Led=1; Led<= 9; Led++) {
+   Led_on(Led);
+   HAL_Delay(500); // Delay 500 ms
+   }*/
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   int8_t left,right,j;
 
-  /* Infinite loop */
-
+ /* Loop checking that all leds can be turned on*/
+ printf("Test 1: Testar att dioder t?nds och sl?cks med Led_on\n");
+ for (j=0; j<= 9; j++)
+ {
+ printf("Led nr %d \n",j);
+ Led_on(j);
+ HAL_Delay(500);
+ }
+ printf("Test 1 klart\n\n");
+ HAL_Delay(1000); // 1000 ms
  
-//int j=0;
-// while (1)
-// {
-//  
-//
-// while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) != 0 );
-//// Wait until L is pushed
-//
-// Led_on(j++); // Turn on led j
-//
-// while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 );
-//// Wait until L is released
-//
-// if (j==5) j=0; // Start from beginning again
-//
-//
-//
-// }
-int j=0;
- while (1)
+ 
+ 
+  /* Checking that points can be shown correct */
+ printf("Test 2 Testar att po?ng kan visas med Show_points\n");
+ right=0;
+ for (left=1; left<= 4; left++)
+ {
+ printf("L po?ng %d",left); printf(" R po?ng %d \n",right);
+ Show_points (left,right);
+ HAL_Delay(500); // 500 ms
+ } 
+  
+ 
+ 
+ 
+  left=0;
+ for (right=1; right<= 4; right++)
+ {
+ printf("L po?ng %d",left); printf(" R po?ng %d \n",right);
+ Show_points (left,right);
+ HAL_Delay(500); // 500 ms
+ }
+
+ for (j=0; j<= 4; j++)
+ {
+ printf("L po?ng %d",j); printf(" R po?ng %d \n",j);
+ Show_points (j,j);
+ HAL_Delay(500); // 500 ms
+ }
+ printf("Test 2 klart\n\n");
+ HAL_Delay(1000); // 1000 ms
+ /* Checking buttons */
+ printf("Test 3 Testar avl?sning av tryckknappar med L_hit och R_hit\n");
+ printf("Tryck L f?r att flytta t?nd lysdiod till h?ger\n");
+ printf("Tryck R f?r att flytta t?nd lysdiod till v?nster\n");
+ printf("Tryck L f?r att b?rja\n");
+ printf("Tryck bollen f?rbi 8 f?r att avsluta\n");
+ 
+ 
+ 
+ 
+ 
+ 
+ j=0;
+
+ while (j<9)
  {
  if ( L_hit() == true ) // Wait for left button hit
  {
@@ -234,21 +286,74 @@ int j=0;
  Led_on(j); // Light on
  HAL_Delay(100); // 100 ms
  while ( L_hit() == true ); // Wait for button release
- HAL_Delay(100); // 100 ms
- if (j>8) j=9; // Start again from right
+ HAL_Delay(100); // 100 ms 
+ 
+ 
+}
  }
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* USER CODE END 2 */
 
- if ( R_hit() == true ) // Wait for right button hit
+  /* Infinite loop */
+   while (1)
  {
- j--; // next led to the left
- Led_on(j); // Light on
- HAL_Delay(100); // 100 ms
- while ( R_hit() == true ); // Wait for button lelease
- HAL_Delay(100); // 100 ms
- if (j<1) j=0; // Start again from left
  }
-
- } // end while 
+ 
+  //int j=0;
+  // while (1)
+  // {
+  //  
+  //
+  // while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) != 0 );
+  //// Wait until L is pushed
+  //
+  // Led_on(j++); // Turn on led j
+  //
+  // while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 );
+  //// Wait until L is released
+  //
+  // if (j==5) j=0; // Start from beginning again
+  //
+  //
+  //
+  // }
+//  int j=0;
+//   while (1)
+//   {
+//   if ( L_hit() == true ) // Wait for left button hit
+//   {
+//   j++; // next led to the right
+//   Led_on(j); // Light on
+//   HAL_Delay(100); // 100 ms
+//   while ( L_hit() == true ); // Wait for button release
+//   HAL_Delay(100); // 100 ms
+//   if (j>8) j=9; // Start again from right
+//   }
+//
+//   if ( R_hit() == true ) // Wait for right button hit
+//   {
+//   j--; // next led to the left
+//   Led_on(j); // Light on
+//   HAL_Delay(100); // 100 ms
+//   while ( R_hit() == true ); // Wait for button lelease
+//   HAL_Delay(100); // 100 ms
+//   if (j<1) j=0; // Start again from left
+//   }
+//
+//   } // end while 
  
  
   /* USER CODE END 3 */

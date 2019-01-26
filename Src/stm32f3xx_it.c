@@ -196,10 +196,13 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
+
+  //  static int testCounter=0;
+//    testCounter++;
+//printf("%d\n",testCounter);
 
   /* USER CODE END SysTick_IRQn 1 */
 }
