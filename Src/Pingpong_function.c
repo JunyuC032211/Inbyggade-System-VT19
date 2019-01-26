@@ -1,6 +1,7 @@
 
 
 #include "Pingpong_function.h"
+#include "stdbool.h"
   
 
 /* Function Led_on
@@ -56,3 +57,15 @@ void Led_on(uint8_t Lednr)
  return;
  } // end function Led_on
 
+/**
+@brief L_hit, check if L button is pressed
+@param void
+@return bool, true if L button pushed, false otherwise
+*/
+bool L_hit(void);
+/**
+@brief R_hit, check if R button is pressed
+@param void
+@return bool, true if R button pushed, false otherwise
+*/
+bool R_hit(void);

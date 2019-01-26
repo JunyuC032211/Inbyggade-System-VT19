@@ -88,15 +88,72 @@
 @param2 uint8_t R_points points for right player
 @return void, no return value
 */
+//void Show_points(uint8_t L_points, uint8_t R_points)
+//{
+//  uint8_t B_point = 0;
+//  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+//  if ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED1_GPIO_Port, LED1_Pin))
+//    printf("send ball back");
+//  else
+//    if( B_point<4)
+//      B_point++;
+//  
+//  uint8_t A_point = 0;
+//  HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+//  if ( HAL_GPIO_ReadPin(R_BUTTON_GPIO_Port, R_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED8_GPIO_Port, LED8_Pin))
+//    printf("send ball back");
+//  else
+//    if( A_point<4)
+//      A_point++;
+//}
 void Show_points(uint8_t L_points, uint8_t R_points)
 {
-  uint8_t B_point = 0;
-  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-  if ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED1_GPIO_Port, LED1_Pin))
-    printf("send ball back");
-  else
-    B_point++;
-  
+  //L_points is the points that left player has 0b0000 where the least significant bit is LED1. 0x8ffa = 0b1000111111111010
+  if(L_points == 1){ //0b0001
+    // then light LED1
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+  }  
+    if(L_points == 2){ //0b0010
+    // then light LED2
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+  } 
+  if(L_points == 3){ //0b0011
+    // then light LED1,2,3
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+  } 
+  if(L_points == 4){ //0b0100
+    // then light LED1,2,3,4
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+  } 
+  // R_points is the points for right players has 0b0000 where the most significant bit is LED5
+  if(R_points == 1){ //0b0001
+    // then light LED8
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+  }  
+    if(R_points == 2){ //0b0010
+    // then light LED8,7
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
+  } 
+  if(R_points == 3){ //0b0011
+    // then light LED8,7,6
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
+  } 
+  if(R_points == 4){ //0b0100
+    // then light LED8,7,6,5
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_SET);
+  } 
 }
 /* USER CODE END 0 */
 
@@ -137,51 +194,60 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-  Show_points(1,0);
- printf("Test av funktion Led_on");
+  
+/* printf("Test av funktion Led_on");
  int Led;
  for (Led=1; Led<= 9; Led++) {
  Led_on(Led);
  HAL_Delay(500); // Delay 500 ms
- }
+ }*/
   /* USER CODE END 2 */
 
   /* Infinite loop */
 
  
-int j=9;
-
+//int j=0;
+// while (1)
+// {
+//  
+//
+// while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) != 0 );
+//// Wait until L is pushed
+//
+// Led_on(j++); // Turn on led j
+//
+// while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 );
+//// Wait until L is released
+//
+// if (j==5) j=0; // Start from beginning again
+//
+//
+//
+// }
+ j=0;
  while (1)
  {
-
- while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) != 0 );
-// Wait until L is pushed
-
- Led_on(j--); // Turn on led j
-
- while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 );
-// Wait until L is released
-
- if (j==4) j=9; // Start from beginning again
-
- }
- 
- /* int k=9;
-
- while (2)
+ if ( L_hit() == true ) // Wait for left button hit
  {
+ j++; // next led to the right
+ Led_on(j); // Light on
+ HAL_Delay(100); // 100 ms
+ while ( L_hit() == true ); // Wait for button release
+ HAL_Delay(100); // 100 ms
+ if (j>8) j=9; // Start again from right
+ }
 
- while ( HAL_GPIO_ReadPin(R_BUTTON_GPIO_Port, R_BUTTON_Pin) != 0 );
-// Wait until R is pushed
+ if ( R_hit() == true ) // Wait for right button hit
+ {
+ j--; // next led to the left
+ Led_on(j); // Light on
+ HAL_Delay(100); // 100 ms
+ while ( R_hit() == true ); // Wait for button lelease
+ HAL_Delay(100); // 100 ms
+ if (j<1) j=0; // Start again from left
+ }
 
- Led_on(k--); // Turn on led k
-
- while ( HAL_GPIO_ReadPin(R_BUTTON_GPIO_Port, R_BUTTON_Pin) == 0 );
-// Wait until R is released
-
- if (k==0) k=9; // Start from beginning again
-
- }*/
+ } // end while 
  
  
   /* USER CODE END 3 */
