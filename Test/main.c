@@ -44,12 +44,12 @@
 #include "spi.h"
 #include "usb.h"
 #include "gpio.h"
-#include "Pingpong_function.h"
-#include "clockinit.h" 
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Pingpong_function.h"
+#include "clockinit.h" 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,6 +75,13 @@
 
 /* Private function prototypes -----------------------------------------------*/
 
+
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 /**
 @brief Show_points, shows points after missed ball
 @param1 uint8_t L_points points for left player
@@ -83,16 +90,14 @@
 */
 void Show_points(uint8_t L_points, uint8_t R_points)
 {
- 
-
+  uint8_t B_point = 0;
+  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+  if ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED1_GPIO_Port, LED1_Pin))
+    printf("send ball back");
+  else
+    B_point++;
+  
 }
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -102,20 +107,21 @@ void Show_points(uint8_t L_points, uint8_t R_points)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+  
 /*  int Lednr;
  for (Lednr=1; Lednr<= 8; Lednr++) {
    HAL_Delay(500); //Delay 500 ms
 // printf("Lednr ar %d \n",Lednr);
  } */
   /* USER CODE END 1 */
-
+  
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+ 
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -131,6 +137,7 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
+  Show_points(1,0);
  printf("Test av funktion Led_on");
  int Led;
  for (Led=1; Led<= 9; Led++) {

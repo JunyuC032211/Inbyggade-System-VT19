@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\Inbyggda_VT19\Egna_projekt\Pingpong\Test\settings\Test.Debug.general.xcl" --backend -f "C:\Users\fy\Documents\Inbyggda_VT19\Egna_projekt\Pingpong\Test\settings\Test.Debug.driver.xcl" 
+& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\Test\settings\Test.Debug.general.xcl" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\Test\settings\Test.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\Inbyggda_VT19\Egna_projekt\Pingpong\Test\settings\Test.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\fy\Documents\Inbyggda_VT19\Egna_projekt\Pingpong\Test\settings\Test.Debug.driver.xcl" 
+& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\Test\settings\Test.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\Test\settings\Test.Debug.driver.xcl" 
 }
