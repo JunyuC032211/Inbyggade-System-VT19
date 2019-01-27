@@ -83,79 +83,9 @@
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/**
-@brief Show_points, shows points after missed ball
-@param1 uint8_t L_points points for left player
-@param2 uint8_t R_points points for right player
-@return void, no return value
-*/
-//void Show_points(uint8_t L_points, uint8_t R_points)
-//{
-//  uint8_t B_point = 0;
-//  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-//  if ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED1_GPIO_Port, LED1_Pin))
-//    printf("send ball back");
-//  else
-//    if( B_point<4)
-//      B_point++;
-//  
-//  uint8_t A_point = 0;
-//  HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-//  if ( HAL_GPIO_ReadPin(R_BUTTON_GPIO_Port, R_BUTTON_Pin) == 0 &&  HAL_GPIO_ReadPin(LED8_GPIO_Port, LED8_Pin))
-//    printf("send ball back");
-//  else
-//    if( A_point<4)
-//      A_point++;
-//}
-void Show_points(uint8_t L_points, uint8_t R_points)
-{
-  //L_points is the points that left player has 0b0000 where the least significant bit is LED1. 0x8ffa = 0b1000111111111010
-  if(L_points == 1){ //0b0001
-    // then light LED1
-      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-  }  
-    if(L_points == 2){ //0b0010
-    // then light LED2
-      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-  } 
-  if(L_points == 3){ //0b0011
-    // then light LED1,2,3
-      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
-  } 
-  if(L_points == 4){ //0b0100
-    // then light LED1,2,3,4
-      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
-  } 
-  // R_points is the points for right players has 0b0000 where the most significant bit is LED5
-  if(R_points == 1){ //0b0001
-    // then light LED8
-      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-  }  
-    if(R_points == 2){ //0b0010
-    // then light LED8,7
-      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
-  } 
-  if(R_points == 3){ //0b0011
-    // then light LED8,7,6
-      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
-  } 
-  if(R_points == 4){ //0b0100
-    // then light LED8,7,6,5
-      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_SET);
-  } 
-}
+
+
+
 /* USER CODE END 0 */
 
 /**
@@ -166,18 +96,13 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   
-/*  int Lednr;
- for (Lednr=1; Lednr<= 8; Lednr++) {
-   HAL_Delay(500); //Delay 500 ms
-// printf("Lednr ar %d \n",Lednr);
- } */
   /* USER CODE END 1 */
   
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
    HAL_Init();
-   //HAL_Delay(100);
+   
  
   /* USER CODE BEGIN Init */
  
@@ -233,8 +158,6 @@ int main(void)
  printf("Test 1 klart\n\n");
  HAL_Delay(1000); // 1000 ms
  
- 
- 
   /* Checking that points can be shown correct */
  printf("Test 2 Testar att po?ng kan visas med Show_points\n");
  right=0;
@@ -245,9 +168,6 @@ int main(void)
  HAL_Delay(500); // 500 ms
  } 
   
- 
- 
- 
   left=0;
  for (right=1; right<= 4; right++)
  {
@@ -271,27 +191,32 @@ int main(void)
  printf("Tryck L f?r att b?rja\n");
  printf("Tryck bollen f?rbi 8 f?r att avsluta\n");
  
- 
- 
- 
- 
- 
  j=0;
 
  while (j<9)
  {
- if ( L_hit() == true ) // Wait for left button hit
- {
- j++; // next led to the right
- Led_on(j); // Light on
- HAL_Delay(100); // 100 ms
- while ( L_hit() == true ); // Wait for button release
- HAL_Delay(100); // 100 ms 
+  if ( L_hit() == true ) // Wait for left button hit
+  {
+    j++; // next led to the right
+    Led_on(j); // Light on
+    HAL_Delay(100); // 100 ms
+    while ( L_hit() == true ); // Wait for button release
+    HAL_Delay(100); // 100 ms 
+  }
  
- 
-}
+  if ( R_hit() == true ) // Wait for right button hit
+  {
+    j--; // next led to the left
+    Led_on(j); // Light on
+    HAL_Delay(100); // 100 ms
+    while ( R_hit() == true ); // Wait for button release
+    HAL_Delay(100); // 100 ms
+    if (j<1) j=0; // Start again from left
+  } 
+  
  }
- 
+ printf("Test 3 klart\n\n\n");
+  HAL_Delay(1000); // 1000 ms 
  
  
  

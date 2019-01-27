@@ -13,6 +13,9 @@ extern "C" {
 #include "stdbool.h"
 
 void Led_on(uint8_t Lednr);
+
+void Show_points(uint8_t L_points, uint8_t R_points);
+
 /**
 @brief L_hit, check if L button is pressed
 @param void
