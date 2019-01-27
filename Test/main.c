@@ -9,8 +9,7 @@
   @brief Testing state machine for program Pingpong
   ******************************************************************************
 */
-  ******************************************************************************
-  */
+
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -59,8 +58,18 @@
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* Define states for state machine*/
+  typedef enum
+  { Start,
+    MoveRight,
+    MoveLeft,
+    ShowPoints,
+    GameOver
+   } states;
+  states State, NextState;
 
-
+ 
+  
 /* USER CODE END 0 */
 
 /**
@@ -70,7 +79,19 @@
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  
+   bool ButtonPressed; // To remember that button is pressed
+
+   uint32_t Varv, Speed; // Ball speed
+   uint8_t Led; // LED nr
+
+   State= Start; // Initiate State to Start
+   NextState= Start;
+
+   Speed= 500000; // Number of loops
+   
+   uint8_t LeftPoints = 0;
+   uint8_t RightPoints = 0;
+   
   /* USER CODE END 1 */
   
   /* MCU Configuration--------------------------------------------------------*/
@@ -96,86 +117,157 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-
-   int8_t left,right,j;
-
- /* Loop checking that all leds can be turned on*/
- printf("Test 1: Testar att dioder t?nds och sl?cks med Led_on\n");
- for (j=0; j<= 9; j++)
- {
- printf("Led nr %d \n",j);
- Led_on(j);
- HAL_Delay(500);
- }
- printf("Test 1 klart\n\n");
- HAL_Delay(1000); // 1000 ms
- 
-  /* Checking that points can be shown correct */
- printf("Test 2 Testar att po?ng kan visas med Show_points\n");
- right=0;
- for (left=1; left<= 4; left++)
- {
- printf("L po?ng %d",left); printf(" R po?ng %d \n",right);
- Show_points (left,right);
- HAL_Delay(500); // 500 ms
- } 
-  
-  left=0;
- for (right=1; right<= 4; right++)
- {
- printf("L po?ng %d",left); printf(" R po?ng %d \n",right);
- Show_points (left,right);
- HAL_Delay(500); // 500 ms
- }
-
- for (j=0; j<= 4; j++)
- {
- printf("L po?ng %d",j); printf(" R po?ng %d \n",j);
- Show_points (j,j);
- HAL_Delay(500); // 500 ms
- }
- printf("Test 2 klart\n\n");
- HAL_Delay(1000); // 1000 ms
- /* Checking buttons */
- printf("Test 3 Testar avl?sning av tryckknappar med L_hit och R_hit\n");
- printf("Tryck L f?r att flytta t?nd lysdiod till h?ger\n");
- printf("Tryck R f?r att flytta t?nd lysdiod till v?nster\n");
- printf("Tryck L f?r att b?rja\n");
- printf("Tryck bollen f?rbi 8 f?r att avsluta\n");
- 
- j=0;
-
- while (j<9)
- {
-  if ( L_hit() == true ) // Wait for left button hit
-  {
-    j++; // next led to the right
-    Led_on(j); // Light on
-    HAL_Delay(100); // 100 ms
-    while ( L_hit() == true ); // Wait for button release
-    HAL_Delay(100); // 100 ms 
-  }
- 
-  if ( R_hit() == true ) // Wait for right button hit
-  {
-    j--; // next led to the left
-    Led_on(j); // Light on
-    HAL_Delay(100); // 100 ms
-    while ( R_hit() == true ); // Wait for button release
-    HAL_Delay(100); // 100 ms
-    if (j<1) j=0; // Start again from left
-  } 
-  
- }
- printf("Test 3 klart\n\n\n");
-  HAL_Delay(1000); // 1000 ms 
  
   /* USER CODE END 2 */
 
-  /* Infinite loop */
-   while (1)
+ /* Infinite loop */
+ while (1)
  {
+     State = NextState;
+
+     switch (State) // State machine
+     {
+       case Start:
+       Led_on(0); // Turn off all LEDs
+
+       if ( L_hit() == true ) // L serve
+       {
+       Led = 1;
+       NextState= MoveRight;
+       
+       while ( L_hit() == true ); // wait until button is released
+       }
+       
+       else if ( R_hit() == true ) // R serve
+       {
+         
+       Led = 8;
+       NextState= MoveLeft;
+       while ( R_hit() == true ); // wait until button is released
+       }
+       else
+       NextState = Start; // Stay in Start state
+     break;
+       
+     case MoveRight:
+     {
+       Led_on(Led);
+       Varv = Speed;
+
+       while( Varv != 0 )
+       {
+       if ( R_hit() ) ButtonPressed = true; // R hit
+       Varv--;
+       }
+
+       if ( ButtonPressed ) // R pressed
+       {
+       if ( Led == 8 ) // and LED8 activa
+       {
+       NextState=MoveLeft; // return ball
+       Led=7;
+       }
+       else 
+       
+       {LeftPoints = LeftPoints *2 + 1; 
+          NextState = ShowPoints;} // hit to early
+       }
+       else
+       {
+       if ( Led == 9 ) // no hit or to late
+       {LeftPoints = LeftPoints *2 + 1; 
+          NextState = ShowPoints;}
+          else NextState = MoveRight; // ball continues to move right
+       }
+       if ( !ButtonPressed ) Led++; // prepare to turn next LED on
+       ButtonPressed=false;
+     }
+     break;
+
+     case MoveLeft:
+     {
+       Led_on(Led);
+       Varv = Speed;
+
+       while(Varv != 0)
+       {
+       if ( L_hit() ) ButtonPressed = true; // L hit
+       Varv--;
+       }
+
+       if ( ButtonPressed ) // L pressed
+       {
+       if ( Led == 1 ) // and LED1 active
+       {
+       NextState=MoveRight; // return ball
+       Led=2;
+       }
+       else
+      {RightPoints = RightPoints * 2 + 1; 
+          NextState = ShowPoints;} // hit to early
+       }
+       else
+       {
+       if ( Led == 0 ) // no hit or to late
+       {RightPoints = RightPoints * 2 + 1; 
+          NextState = ShowPoints;}
+          else NextState = MoveLeft; // ball continues to move left
+       }
+       if ( !ButtonPressed ) Led--; // prepare to turn next LED on
+       ButtonPressed=false;
+
+     }
+     break;
+     case ShowPoints:
+
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
+      HAL_Delay(100);
+      
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_RESET);
+      
+      
+      
+      
+      
+      Show_points(LeftPoints, RightPoints);
+      HAL_Delay(1000);
+      if(LeftPoints == 0xf | RightPoints == 0xf) // 1111, 4 pts
+      {
+        NextState= GameOver;
+        break;
+      }
+      NextState= Start;
+      break;
+      
+      case GameOver:
+        {
+          LeftPoints = 0;
+          RightPoints = 0;
+          NextState= Start;
+        }
+      break;
+ 
+ default:
+ break;
  }
+
+ }
+
+
 
   /* USER CODE END 3 */
 }
@@ -185,11 +277,6 @@ int main(void)
 
 /* USER CODE BEGIN 4 */
 
- /* void Led_on(uint8_t Lednr)
- {
- printf("Lednr ?r %d \n",Lednr);
- return;
- } */
 /* USER CODE END 4 */
 
 /**
