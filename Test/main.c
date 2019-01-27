@@ -169,13 +169,13 @@ int main(void)
        }
        else 
        
-       {LeftPoints = LeftPoints *2 + 1; 
+       {LeftPoints = LeftPoints  + 1; 
           NextState = ShowPoints;} // hit to early
        }
        else
        {
        if ( Led == 9 ) // no hit or to late
-       {LeftPoints = LeftPoints *2 + 1; 
+       {LeftPoints = LeftPoints  + 1; 
           NextState = ShowPoints;}
           else NextState = MoveRight; // ball continues to move right
        }
@@ -203,13 +203,13 @@ int main(void)
        Led=2;
        }
        else
-      {RightPoints = RightPoints * 2 + 1; 
+      {RightPoints = RightPoints  + 1; 
           NextState = ShowPoints;} // hit to early
        }
        else
        {
        if ( Led == 0 ) // no hit or to late
-       {RightPoints = RightPoints * 2 + 1; 
+       {RightPoints = RightPoints  + 1; 
           NextState = ShowPoints;}
           else NextState = MoveLeft; // ball continues to move left
        }
@@ -228,7 +228,7 @@ int main(void)
       HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
       HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
       HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-      HAL_Delay(100);
+      HAL_Delay(1000);
       
       HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
       HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
@@ -245,7 +245,8 @@ int main(void)
       
       Show_points(LeftPoints, RightPoints);
       HAL_Delay(1000);
-      if(LeftPoints == 0xf | RightPoints == 0xf) // 1111, 4 pts
+      
+      if(LeftPoints == 4 | RightPoints == 4) // 1111, 4 pts
       {
         NextState= GameOver;
         break;
