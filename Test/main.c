@@ -1,39 +1,14 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
+  @brief Pingpong test program
+  @file main.c
+  @author Junyu Chen
+  @version 1.1
+  @date 24-Januari-2019
+  @brief Testing state machine for program Pingpong
   ******************************************************************************
-  ** This notice applies to any and all portions of this file
-  * that are not between comment pairs USER CODE BEGIN and
-  * USER CODE END. Other portions of this file, whether 
-  * inserted by the user or by software development tools
-  * are owned by their respective copyright owners.
-  *
-  * COPYRIGHT(c) 2019 STMicroelectronics
-  *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  *
+*/
   ******************************************************************************
   */
 /* USER CODE END Header */
@@ -121,30 +96,7 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-  
-    /* printf("Test av funktion Led_on");
-   int Led;
-   for (Led=1; Led<= 9; Led++) {
-   Led_on(Led);
-   HAL_Delay(500); // Delay 500 ms
-   }*/
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
    int8_t left,right,j;
 
  /* Loop checking that all leds can be turned on*/
@@ -218,69 +170,13 @@ int main(void)
  printf("Test 3 klart\n\n\n");
   HAL_Delay(1000); // 1000 ms 
  
- 
- 
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
   /* USER CODE END 2 */
 
   /* Infinite loop */
    while (1)
  {
  }
- 
-  //int j=0;
-  // while (1)
-  // {
-  //  
-  //
-  // while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) != 0 );
-  //// Wait until L is pushed
-  //
-  // Led_on(j++); // Turn on led j
-  //
-  // while ( HAL_GPIO_ReadPin(L_BUTTON_GPIO_Port, L_BUTTON_Pin) == 0 );
-  //// Wait until L is released
-  //
-  // if (j==5) j=0; // Start from beginning again
-  //
-  //
-  //
-  // }
-//  int j=0;
-//   while (1)
-//   {
-//   if ( L_hit() == true ) // Wait for left button hit
-//   {
-//   j++; // next led to the right
-//   Led_on(j); // Light on
-//   HAL_Delay(100); // 100 ms
-//   while ( L_hit() == true ); // Wait for button release
-//   HAL_Delay(100); // 100 ms
-//   if (j>8) j=9; // Start again from right
-//   }
-//
-//   if ( R_hit() == true ) // Wait for right button hit
-//   {
-//   j--; // next led to the left
-//   Led_on(j); // Light on
-//   HAL_Delay(100); // 100 ms
-//   while ( R_hit() == true ); // Wait for button lelease
-//   HAL_Delay(100); // 100 ms
-//   if (j<1) j=0; // Start again from left
-//   }
-//
-//   } // end while 
- 
- 
+
   /* USER CODE END 3 */
 }
 
