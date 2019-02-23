@@ -1,0 +1,436 @@
+[
+  {
+    "ID": "c:@F@MX_GPIO_Init",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void MX_GPIO_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "60",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\gpio.c"
+    },
+    "name": "MX_GPIO_Init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@hi2c1",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "hi2c1",
+    "location": {
+      "column": "19",
+      "line": "47",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\i2c.c"
+    },
+    "name": "hi2c1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@MX_I2C1_Init",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void MX_I2C1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "50",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\i2c.c"
+    },
+    "name": "MX_I2C1_Init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_I2C_MspInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_I2C_MspInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "81",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\i2c.c"
+    },
+    "name": "HAL_I2C_MspInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_I2C_MspDeInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_I2C_MspDeInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "111",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\i2c.c"
+    },
+    "name": "HAL_I2C_MspDeInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@hspi1",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "hspi1",
+    "location": {
+      "column": "19",
+      "line": "47",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\spi.c"
+    },
+    "name": "hspi1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@MX_SPI1_Init",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void MX_SPI1_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "50",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\spi.c"
+    },
+    "name": "MX_SPI1_Init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_SPI_MspInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_SPI_MspInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "74",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\spi.c"
+    },
+    "name": "HAL_SPI_MspInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_SPI_MspDeInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_SPI_MspDeInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "105",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\spi.c"
+    },
+    "name": "HAL_SPI_MspDeInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_MspInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_MspInit(void)",
+    "location": {
+      "column": "6",
+      "line": "84",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_hal_msp.c"
+    },
+    "name": "HAL_MspInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@NMI_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void NMI_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "84",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "NMI_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HardFault_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HardFault_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "97",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "HardFault_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@MemManage_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void MemManage_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "112",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "MemManage_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@BusFault_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void BusFault_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "127",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "BusFault_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@UsageFault_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void UsageFault_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "142",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "UsageFault_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SVC_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SVC_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "157",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "SVC_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@DebugMon_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void DebugMon_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "170",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "DebugMon_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@PendSV_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void PendSV_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "183",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "PendSV_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SysTick_Handler",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SysTick_Handler(void)",
+    "location": {
+      "column": "6",
+      "line": "196",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\stm32f3xx_it.c"
+    },
+    "name": "SysTick_Handler",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f3xx.c@4869@macro@HSE_VALUE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "HSE_VALUE",
+    "location": {
+      "column": "11",
+      "line": "104",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "HSE_VALUE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f3xx.c@5135@macro@HSI_VALUE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "HSI_VALUE",
+    "location": {
+      "column": "11",
+      "line": "109",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "HSI_VALUE",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:system_stm32f3xx.c@5505@macro@VECT_TAB_OFFSET",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "VECT_TAB_OFFSET",
+    "location": {
+      "column": "9",
+      "line": "116",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "VECT_TAB_OFFSET",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@SystemCoreClock",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "SystemCoreClock",
+    "location": {
+      "column": "10",
+      "line": "141",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "SystemCoreClock",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@AHBPrescTable",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "AHBPrescTable",
+    "location": {
+      "column": "15",
+      "line": "143",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "AHBPrescTable",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@APBPrescTable",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "APBPrescTable",
+    "location": {
+      "column": "15",
+      "line": "144",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "APBPrescTable",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SystemInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SystemInit(void)",
+    "location": {
+      "column": "6",
+      "line": "168",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "SystemInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@SystemCoreClockUpdate",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void SystemCoreClockUpdate(void)",
+    "location": {
+      "column": "6",
+      "line": "243",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\system_stm32f3xx.c"
+    },
+    "name": "SystemCoreClockUpdate",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@hpcd_USB_FS",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "hpcd_USB_FS",
+    "location": {
+      "column": "19",
+      "line": "47",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\usb.c"
+    },
+    "name": "hpcd_USB_FS",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@MX_USB_PCD_Init",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void MX_USB_PCD_Init(void)",
+    "location": {
+      "column": "6",
+      "line": "51",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\usb.c"
+    },
+    "name": "MX_USB_PCD_Init",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_PCD_MspInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_PCD_MspInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "68",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\usb.c"
+    },
+    "name": "HAL_PCD_MspInit",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@HAL_PCD_MspDeInit",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void HAL_PCD_MspDeInit(int *)",
+    "location": {
+      "column": "6",
+      "line": "98",
+      "path": "C:\\Users\\fy\\Documents\\Inbyggda_VT19\\Egna_projekt\\Pingpong\\Src\\usb.c"
+    },
+    "name": "HAL_PCD_MspDeInit",
+    "origin": "project_file",
+    "scope": null
+  }
+]
