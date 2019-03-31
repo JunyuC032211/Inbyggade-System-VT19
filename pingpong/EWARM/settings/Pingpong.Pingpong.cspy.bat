@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.general.xcl" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
+"C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.general.xcl" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
+"C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
 
 @echo off 
 :end

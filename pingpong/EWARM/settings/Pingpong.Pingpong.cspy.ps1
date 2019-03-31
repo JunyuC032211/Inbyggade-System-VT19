@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.general.xcl" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
+& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.general.xcl" --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
 }
 else
 {
-& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
+& "C:\Users\fy\Documents\IAR\common\bin\cspybat" -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\pingpong\EWARM\settings\Pingpong.Pingpong.driver.xcl" 
 }
