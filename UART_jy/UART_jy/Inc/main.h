@@ -66,6 +66,8 @@ void Error_Handler(void);
 #define MEMS_INT3_GPIO_Port GPIOE
 #define MEMS_INT4_Pin GPIO_PIN_5
 #define MEMS_INT4_GPIO_Port GPIOE
+#define RES_DISP_Pin GPIO_PIN_6
+#define RES_DISP_GPIO_Port GPIOE
 #define OSC32_IN_Pin GPIO_PIN_14
 #define OSC32_IN_GPIO_Port GPIOC
 #define OSC32_OUT_Pin GPIO_PIN_15

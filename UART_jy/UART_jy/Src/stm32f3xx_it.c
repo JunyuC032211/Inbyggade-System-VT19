@@ -22,7 +22,6 @@
 #include "main.h"
 #include "stm32f3xx_it.h"
 /* Private includes ----------------------------------------------------------*/
-#include "usart.h"
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
 

@@ -28,10 +28,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-    ITStatus UartReady = RESET;
-    /* Size of Transmission buffer */
-    #define BUFFERSIZE 22
-    uint8_t Buffer[] = "Hello World interrupt!";
+#include "display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +60,12 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+    ITStatus UartReady = RESET;
+    /* Size of Transmission buffer */
+    #define BUFFERSIZE 6
+    uint8_t Buffer[] = "123456";
+    uint8_t RXBuffer[] = "123456";
+
 /**
 * @brief Tx Transfer completed callback
 * @param UartHandle: UART handle.
@@ -85,7 +88,16 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
+
  /* Set transmission flag: trasfer complete*/
+    selectRow(0);
+  printf("Printing time to display..\n");
+  for (size_t i = 0; i < 6; i++) {
+    sendDataToDisplay(RXBuffer[i]);
+    if (i == 1 || i == 3 ) {
+      sendDataToDisplay(58);
+    }
+  }
  UartReady = SET;
 
 }
@@ -122,9 +134,11 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_RTC_Init();
-  MX_SPI1_Init();
   MX_USART3_UART_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
+    initDisplay();
+    selectRow(0);
 //  HAL_UART_Transmit(&huart3, (uint8_t*)hello, strlen(hello), 5000);
   /* USER CODE END 2 */
 
