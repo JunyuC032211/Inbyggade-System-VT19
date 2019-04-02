@@ -1,0 +1,15 @@
+"C:\Users\fy\Documents\IAR\arm\bin\armproc.dll" 
+
+"C:\Users\fy\Documents\IAR\arm\bin\armstlink2.dll" 
+
+"C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\LABB_TEST\Labb_test\EWARM\Labb_test\Exe\Labb_test.out" 
+
+--plugin="C:\Users\fy\Documents\IAR\arm\bin\armbat.dll" 
+
+--device_macro="C:\Users\fy\Documents\IAR\arm\config\debugger\ST\STM32F3xx.dmac" 
+
+--flash_loader="C:\Users\fy\Documents\IAR\arm\config\flashloader\ST\FlashSTM32F3xxxC.board" 
+
+
+
+

@@ -61,6 +61,20 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle){
+  /* Set transmission flag: transfer complete*/
+  UartReady = SET;
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle){
+  /* Set transmission flag: transfer complete*/
+
+  //Trying to set time instead of just showing it on display
+  RTC_CalendarSet(RXBuffer);
+  printf("%d\n", RXBuffer[0]);
+
+  UartReady = SET;
+}
 
 /* USER CODE END 0 */
 
@@ -71,8 +85,9 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
+  uint_8 Tecken;
+  char*hello = "Hello world!\n\r";
+  /*USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -98,7 +113,7 @@ int main(void)
   MX_SPI2_Init();
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_UART_Transmit(&huart3, (uint8_t*)hello,strlen(hello),5000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,7 +121,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    HAL_UART_Receive(&huart3, &Tecken, 1, 5000);
+    HAL_UART_Transmit(&huart3, &Tecken, 1, 5000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

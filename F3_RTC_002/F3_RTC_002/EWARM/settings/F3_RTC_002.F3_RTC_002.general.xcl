@@ -1,0 +1,15 @@
+"C:\Users\fy\Documents\IAR\arm\bin\armproc.dll" 
+
+"C:\Users\fy\Documents\IAR\arm\bin\armstlink2.dll" 
+
+"C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\F3_RTC_002\F3_RTC_002\EWARM\F3_RTC_002\Exe\F3_RTC_002.out" 
+
+--plugin="C:\Users\fy\Documents\IAR\arm\bin\armbat.dll" 
+
+--device_macro="C:\Users\fy\Documents\IAR\arm\config\debugger\ST\STM32F3xx.dmac" 
+
+--flash_loader="C:\Users\fy\Documents\IAR\arm\config\flashloader\ST\FlashSTM32F3xxxC.board" 
+
+
+
+
