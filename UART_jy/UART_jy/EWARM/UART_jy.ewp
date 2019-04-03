@@ -1061,6 +1061,9 @@
         <name>$PROJ_DIR$\..\Src\gpio.c</name>
       </file>
       <file>
+        <name>$PROJ_DIR$/../Src/crc.c</name>
+      </file>
+      <file>
         <name>$PROJ_DIR$\..\Src\i2c.c</name>
       </file>
       <file>
@@ -1068,6 +1071,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\spi.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../Src/tim.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\usart.c</name>
@@ -1090,6 +1096,12 @@
     </group>
     <group>
       <name>STM32F3xx_HAL_Driver</name>
+      <file>
+        <name>$PROJ_DIR$/../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_crc.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$/../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_crc_ex.c</name>
+      </file>
       <file>
         <name>$PROJ_DIR$\..\Drivers\STM32F3xx_HAL_Driver\Src\stm32f3xx_hal_i2c.c</name>
       </file>

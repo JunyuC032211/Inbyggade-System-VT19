@@ -20,9 +20,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "crc.h"
 #include "i2c.h"
 #include "rtc.h"
 #include "spi.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -104,6 +106,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 // uint8_t Tecken;
 // char *hello = "Hello world!\n\r";
+ 
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -128,6 +131,8 @@ int main(void)
   MX_RTC_Init();
   MX_USART3_UART_Init();
   MX_SPI2_Init();
+  MX_CRC_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
     initDisplay();
     selectRow(0);
@@ -139,8 +144,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);	//LED Output Toggle
-    HAL_Delay(500);
+
     /* USER CODE BEGIN 3 */
      /* Start the transmission process */
      if(HAL_UART_Transmit_IT(&huart3, (uint8_t *)Buffer, BUFFERSIZE)!= HAL_OK)

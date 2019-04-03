@@ -84,10 +84,12 @@ void Error_Handler(void);
 #define SPI1_MISO_GPIO_Port GPIOA
 #define SPI1_MISOA7_Pin GPIO_PIN_7
 #define SPI1_MISOA7_GPIO_Port GPIOA
-#define LED_Pin GPIO_PIN_8
-#define LED_GPIO_Port GPIOE
+#define LED1_Pin GPIO_PIN_8
+#define LED1_GPIO_Port GPIOE
 #define LD3_Pin GPIO_PIN_9
 #define LD3_GPIO_Port GPIOE
+#define LED2_Pin GPIO_PIN_10
+#define LED2_GPIO_Port GPIOE
 #define LD7_Pin GPIO_PIN_11
 #define LD7_GPIO_Port GPIOE
 #define LD9_Pin GPIO_PIN_12
