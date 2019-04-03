@@ -62,9 +62,9 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
     ITStatus UartReady = RESET;
     /* Size of Transmission buffer */
-    #define BUFFERSIZE 6
-    uint8_t Buffer[] = "123456";
-    uint8_t RXBuffer[] = "123456";
+    #define BUFFERSIZE 22
+    uint8_t Buffer[] = "Hello World interrupt!";
+
 
 /**
 * @brief Tx Transfer completed callback
@@ -90,14 +90,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
 
  /* Set transmission flag: trasfer complete*/
-    selectRow(0);
-  printf("Printing time to display..\n");
-  for (size_t i = 0; i < 6; i++) {
-    sendDataToDisplay(RXBuffer[i]);
-    if (i == 1 || i == 3 ) {
-      sendDataToDisplay(58);
-    }
-  }
  UartReady = SET;
 
 }
@@ -147,7 +139,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);	//LED Output Toggle
+    HAL_Delay(500);
     /* USER CODE BEGIN 3 */
      /* Start the transmission process */
      if(HAL_UART_Transmit_IT(&huart3, (uint8_t *)Buffer, BUFFERSIZE)!= HAL_OK)
@@ -158,7 +151,7 @@ int main(void)
      /* Wait for the end of the transfer */
      while (UartReady != SET)
      {
-    }
+     }
      /* Reset transmission flag */
      UartReady = RESET;
      /* Put UART peripheral in reception process */
@@ -174,6 +167,7 @@ int main(void)
      /* Reset transmission flag */
      UartReady = RESET;
     }
+    
   /* USER CODE END 3 */
 }
 
