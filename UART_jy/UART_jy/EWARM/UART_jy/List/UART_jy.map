@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.2.178/W32 for ARM                  03/Apr/2019  18:11:39
+# IAR ELF Linker V8.32.2.178/W32 for ARM                  04/Apr/2019  10:52:50
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
@@ -8,7 +8,7 @@
 #    Map file     =  
 #        C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\UART_jy\UART_jy\EWARM\UART_jy\List\UART_jy.map
 #    Command line =  
-#        -f C:\Users\fy\AppData\Local\Temp\EW52C1.tmp
+#        -f C:\Users\fy\AppData\Local\Temp\EWE61B.tmp
 #        (C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\UART_jy\UART_jy\EWARM\UART_jy\Obj\crc.o
 #        C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\UART_jy\UART_jy\EWARM\UART_jy\Obj\display.o
 #        C:\Users\fy\Documents\GitHub\Inbyggade-System-VT19\UART_jy\UART_jy\EWARM\UART_jy\Obj\gpio.o
@@ -532,10 +532,10 @@ HAL_UART_Init            0x800'1f15   0x30  Code  Gb  stm32f3xx_hal_uart.o [1]
 HAL_UART_MspInit         0x800'2623   0x6e  Code  Gb  usart.o [1]
 HAL_UART_Receive_IT      0x800'1fd7   0x6e  Code  Gb  stm32f3xx_hal_uart.o [1]
 HAL_UART_RxCpltCallback
-                         0x800'2be3    0x8  Code  Gb  main.o [1]
+                         0x800'2bb9   0x32  Code  Gb  main.o [1]
 HAL_UART_Transmit_IT     0x800'1f95   0x42  Code  Gb  stm32f3xx_hal_uart.o [1]
 HAL_UART_TxCpltCallback
-                         0x800'2bb1   0x32  Code  Gb  main.o [1]
+                         0x800'2bb1    0x8  Code  Gb  main.o [1]
 HEAP$$Base              0x2000'0868          --   Gb  - Linker created -
 HEAP$$Limit             0x2000'0a68          --   Gb  - Linker created -
 HardFault_Handler        0x800'4eef    0x2  Code  Gb  stm32f3xx_it.o [1]

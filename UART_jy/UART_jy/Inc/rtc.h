@@ -33,7 +33,8 @@
 extern RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN Private defines */
-
+void RTC_CalendarShow(uint8_t *showtime, uint8_t *showdate);
+void RTC_CalendarSet(void);
 /* USER CODE END Private defines */
 
 void MX_RTC_Init(void);

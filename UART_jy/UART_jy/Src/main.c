@@ -52,6 +52,7 @@
 
 /* USER CODE BEGIN PV */
 
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -67,6 +68,11 @@ void SystemClock_Config(void);
     #define BUFFERSIZE 6
     uint8_t Buffer[] = "Hello World interrupt!";
     uint8_t RXBuffer[]= "";
+
+    /* Buffers used for displaying Time and Date */
+    uint8_t aShowTime[50] = {0};
+    uint8_t aShowDate[50] = {0};
+
 
 /**
 * @brief Tx Transfer completed callback
@@ -142,6 +148,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
     initDisplay();
     selectRow(0);
+    RTC_CalendarSet()
 //  HAL_UART_Transmit(&huart3, (uint8_t*)hello, strlen(hello), 5000);
   /* USER CODE END 2 */
 
@@ -152,6 +159,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    
+    RTC_CalendarShow(aShowTime, aShowDate);
+    
      /* Start the transmission process */
      if(HAL_UART_Transmit_IT(&huart3, (uint8_t *)RXBuffer, BUFFERSIZE)!= HAL_OK)
      {
@@ -243,10 +253,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-   HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);	//LED1(blue) Output Toggle
-   while(1)
-   {
-   }
+
   /* USER CODE END Error_Handler_Debug */
 }
 
