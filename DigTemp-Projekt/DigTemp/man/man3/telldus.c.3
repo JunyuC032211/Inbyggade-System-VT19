@@ -1,0 +1,155 @@
+.TH "Src/telldus.c" 3 "Fri Mar 9 2018" "Version 1.2" "DoxyTemp" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Src/telldus.c \- Telldus file, complements \fBmain\&.c\fP and\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'telldus\&.h'\fP
+.br
+\fC#include 'gpio\&.h'\fP
+.br
+\fC#include 'stdbool\&.h'\fP
+.br
+\fC#include 'crc\&.h'\fP
+.br
+\fC#include 'display\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+\fC#include 'setuartrtc\&.h'\fP
+.br
+\fC#include 'usart\&.h'\fP
+.br
+\fC#include 'rtc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtelldus\fP (uint16_t ticks2)"
+.br
+.RI "telldus, with the value of ticks2 it processes the 1s and 0s of the input and saves the result\&. When the uint32_t telldus32 is full it checks the saved crc with the generated checksum\&. After that it sends the values of Temprature and Humidity to the display\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBprecount\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcount32\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcrcCount\fP = 0"
+.br
+.ti -1c
+.RI "uint16_t \fBTemperature\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBHumidity\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBSensorID\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBChannel\fP = 0"
+.br
+.ti -1c
+.RI "uint32_t \fBtelldus32\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcrc\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBchecksum\fP"
+.br
+.ti -1c
+.RI "bool \fBsave32\fP = false"
+.br
+.ti -1c
+.RI "bool \fBwaitForZero\fP = false"
+.br
+.ti -1c
+.RI "char \fBdisplayString\fP [10]"
+.br
+.ti -1c
+.RI "double \fBtemp\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Telldus file, complements \fBmain\&.c\fP and\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Johan Hanssen 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1\&.3 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+16-February-2018 The code for interpreting the values sent from the wireless Telldus module\&. 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void telldus (uint16_t ticks2)"
+
+.PP
+telldus, with the value of ticks2 it processes the 1s and 0s of the input and saves the result\&. When the uint32_t telldus32 is full it checks the saved crc with the generated checksum\&. After that it sends the values of Temprature and Humidity to the display\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIuint16_t\fP ticks2 , value of the period of the flank on PA15 port\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void, but it sends temperature and humitidy to the \fBsendDisplay()\fP function\&. 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "uint16_t Channel = 0"
+
+.SS "uint32_t checksum"
+
+.SS "uint8_t count32"
+
+.SS "uint32_t crc"
+
+.SS "uint8_t crcCount = 0"
+
+.SS "char displayString[10]"
+
+.SS "uint16_t Humidity"
+
+.SS "uint8_t precount"
+
+.SS "bool save32 = false"
+
+.SS "uint16_t SensorID"
+
+.SS "uint32_t telldus32"
+
+.SS "double temp"
+
+.SS "uint16_t Temperature"
+
+.SS "bool waitForZero = false"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DoxyTemp from the source code\&.

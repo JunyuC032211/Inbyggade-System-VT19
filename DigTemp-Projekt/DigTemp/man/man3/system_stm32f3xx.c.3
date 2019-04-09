@@ -1,0 +1,114 @@
+.TH "Src/system_stm32f3xx.c" 3 "Fri Mar 9 2018" "Version 1.2" "DoxyTemp" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Src/system_stm32f3xx.c \- CMSIS Cortex-M4 Device Peripheral Access Layer System Source File\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stm32f3xx\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHSE_VALUE\fP   ((uint32_t)8000000)"
+.br
+.ti -1c
+.RI "#define \fBHSI_VALUE\fP   ((uint32_t)8000000)"
+.br
+.ti -1c
+.RI "#define \fBVECT_TAB_OFFSET\fP   0x0"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSystemInit\fP (void)"
+.br
+.RI "Setup the microcontroller system Initialize the FPU setting, vector table location and the PLL configuration is reset\&. "
+.ti -1c
+.RI "void \fBSystemCoreClockUpdate\fP (void)"
+.br
+.RI "Update SystemCoreClock variable according to Clock Register Values\&. The SystemCoreClock variable contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBSystemCoreClock\fP = 8000000"
+.br
+.ti -1c
+.RI "const uint8_t \fBAHBPrescTable\fP [16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}"
+.br
+.ti -1c
+.RI "const uint8_t \fBAPBPrescTable\fP [8] = {0, 0, 0, 0, 1, 2, 3, 4}"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M4 Device Peripheral Access Layer System Source File\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+MCD Application Team
+.IP "1." 4
+This file provides two functions and one global variable to be called from user application:
+.IP "  \(bu" 4
+\fBSystemInit()\fP: This function is called at startup just after reset and before branch to main program\&. This call is made inside the 'startup_stm32f3xx\&.s' file\&.
+.IP "  \(bu" 4
+SystemCoreClock variable: Contains the core clock (HCLK), it can be used by the user application to setup the SysTick timer or configure other parameters\&.
+.IP "  \(bu" 4
+\fBSystemCoreClockUpdate()\fP: Updates the variable SystemCoreClock and must be called whenever the core clock is changed during program execution\&.
+.PP
+
+.IP "2." 4
+After each device reset the HSI (8 MHz) is used as system clock source\&. Then \fBSystemInit()\fP function is called, in 'startup_stm32f3xx\&.s' file, to configure the system clock before to branch to main program\&.
+.PP
+.RE
+.PP
+.SH "3\&. This file configures the system clock as follows: "
+.PP
+.PP
+.SS "Supported STM32F3xx device "
+.PP
+.SS "System Clock source | HSI "
+.PP
+.SS "SYSCLK(Hz) | 8000000 "
+.PP
+.SS "HCLK(Hz) | 8000000 "
+.PP
+.SS "AHB Prescaler | 1 "
+.PP
+.SS "APB2 Prescaler | 1 "
+.PP
+.SS "APB1 Prescaler | 1 "
+.PP
+.SS "USB Clock | DISABLE "
+.PP
+=============================================================================
+.PP
+\fBAttention:\fP
+.RS 4
+.RE
+.PP
+.SS "(C) COPYRIGHT(c) 2016 STMicroelectronics"
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.IP "1." 4
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.IP "2." 4
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.IP "3." 4
+Neither the name of STMicroelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DoxyTemp from the source code\&.

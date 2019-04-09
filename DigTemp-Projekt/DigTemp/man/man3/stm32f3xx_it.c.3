@@ -1,0 +1,140 @@
+.TH "Src/stm32f3xx_it.c" 3 "Fri Mar 9 2018" "Version 1.2" "DoxyTemp" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Src/stm32f3xx_it.c \- Interrupt Service Routines\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stm32f3xx_hal\&.h'\fP
+.br
+\fC#include 'stm32f3xx\&.h'\fP
+.br
+\fC#include 'stm32f3xx_it\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSVC_Handler\fP (void)"
+.br
+.RI "This function handles System service call via SWI instruction\&. "
+.ti -1c
+.RI "void \fBPendSV_Handler\fP (void)"
+.br
+.RI "This function handles Pendable request for system service\&. "
+.ti -1c
+.RI "void \fBSysTick_Handler\fP (void)"
+.br
+.RI "This function handles System tick timer\&. "
+.ti -1c
+.RI "void \fBTIM2_IRQHandler\fP (void)"
+.br
+.RI "This function handles TIM2 global interrupt\&. "
+.ti -1c
+.RI "void \fBUSART2_IRQHandler\fP (void)"
+.br
+.RI "This function handles USART2 global interrupt / USART2 wake-up interrupt through EXTI line 26\&. "
+.ti -1c
+.RI "void \fBUSART3_IRQHandler\fP (void)"
+.br
+.RI "This function handles USART3 global interrupt / USART3 wake-up interrupt through EXTI line 28\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "TIM_HandleTypeDef \fBhtim2\fP"
+.br
+.ti -1c
+.RI "UART_HandleTypeDef \fBhuart2\fP"
+.br
+.ti -1c
+.RI "UART_HandleTypeDef \fBhuart3\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interrupt Service Routines\&. 
+
+COPYRIGHT(c) 2018 STMicroelectronics
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.IP "1." 4
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.IP "2." 4
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.IP "3." 4
+Neither the name of STMicroelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void PendSV_Handler (void)"
+
+.PP
+This function handles Pendable request for system service\&. 
+.SS "void SVC_Handler (void)"
+
+.PP
+This function handles System service call via SWI instruction\&. 
+.SS "void SysTick_Handler (void)"
+
+.PP
+This function handles System tick timer\&. 
+.SS "void TIM2_IRQHandler (void)"
+
+.PP
+This function handles TIM2 global interrupt\&. 
+.SS "void USART2_IRQHandler (void)"
+
+.PP
+This function handles USART2 global interrupt / USART2 wake-up interrupt through EXTI line 26\&. 
+.SS "void USART3_IRQHandler (void)"
+
+.PP
+This function handles USART3 global interrupt / USART3 wake-up interrupt through EXTI line 28\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "TIM_HandleTypeDef htim2"
+File Name : TIM\&.c Description : This file provides code for the configuration of the TIM instances\&.
+.PP
+This notice applies to any and all portions of this file that are not between comment pairs USER CODE BEGIN and USER CODE END\&. Other portions of this file, whether inserted by the user or by software development tools are owned by their respective copyright owners\&.
+.PP
+COPYRIGHT(c) 2018 STMicroelectronics
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.IP "1." 4
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.IP "2." 4
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.IP "3." 4
+Neither the name of STMicroelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.SS "UART_HandleTypeDef huart2"
+File Name : USART\&.c Description : This file provides code for the configuration of the USART instances\&.
+.PP
+This notice applies to any and all portions of this file that are not between comment pairs USER CODE BEGIN and USER CODE END\&. Other portions of this file, whether inserted by the user or by software development tools are owned by their respective copyright owners\&.
+.PP
+COPYRIGHT(c) 2018 STMicroelectronics
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.IP "1." 4
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.IP "2." 4
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.IP "3." 4
+Neither the name of STMicroelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.SS "UART_HandleTypeDef huart3"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DoxyTemp from the source code\&.

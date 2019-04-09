@@ -1,0 +1,174 @@
+\section{Src/telldus.c File Reference}
+\label{telldus_8c}\index{Src/telldus.\+c@{Src/telldus.\+c}}
+
+
+Telldus file, complements \doxyref{main.\+c}{p.}{main_8c} and.  
+
+
+{\ttfamily \#include \char`\"{}telldus.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}display.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}setuartrtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ telldus} (uint16\+\_\+t ticks2)
+\begin{DoxyCompactList}\small\item\em telldus, with the value of ticks2 it processes the 1s and 0s of the input and saves the result. When the uint32\+\_\+t telldus32 is full it checks the saved crc with the generated checksum. After that it sends the values of Temprature and Humidity to the display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ precount}
+\item 
+uint8\+\_\+t \textbf{ count32}
+\item 
+uint8\+\_\+t \textbf{ crc\+Count} = 0
+\item 
+uint16\+\_\+t \textbf{ Temperature}
+\item 
+uint16\+\_\+t \textbf{ Humidity}
+\item 
+uint16\+\_\+t \textbf{ Sensor\+ID}
+\item 
+uint16\+\_\+t \textbf{ Channel} = 0
+\item 
+uint32\+\_\+t \textbf{ telldus32}
+\item 
+uint32\+\_\+t \textbf{ crc}
+\item 
+uint32\+\_\+t \textbf{ checksum}
+\item 
+bool \textbf{ save32} = false
+\item 
+bool \textbf{ wait\+For\+Zero} = false
+\item 
+char \textbf{ display\+String} [10]
+\item 
+double \textbf{ temp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Telldus file, complements \doxyref{main.\+c}{p.}{main_8c} and. 
+
+\begin{DoxyAuthor}{Author}
+Johan Hanssen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+16-\/\+February-\/2018 The code for interpreting the values sent from the wireless Telldus module. 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\label{telldus_8c_aa0b9141cba014949e6875be93f061a7b}} 
+\index{telldus.\+c@{telldus.\+c}!telldus@{telldus}}
+\index{telldus@{telldus}!telldus.\+c@{telldus.\+c}}
+\subsubsection{telldus()}
+{\footnotesize\ttfamily void telldus (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{ticks2 }\end{DoxyParamCaption})}
+
+
+
+telldus, with the value of ticks2 it processes the 1s and 0s of the input and saves the result. When the uint32\+\_\+t telldus32 is full it checks the saved crc with the generated checksum. After that it sends the values of Temprature and Humidity to the display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint16\+\_\+t} & ticks2 , value of the period of the flank on P\+A15 port.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, but it sends temperature and humitidy to the \doxyref{send\+Display()}{p.}{display_8c_a014b0bcd86f1f4e7a9bf3e3687963f9b} function. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{telldus_8c_ad4837bf35d7735a2a2b2bac26825e6db}} 
+\index{telldus.\+c@{telldus.\+c}!Channel@{Channel}}
+\index{Channel@{Channel}!telldus.\+c@{telldus.\+c}}
+\subsubsection{Channel}
+{\footnotesize\ttfamily uint16\+\_\+t Channel = 0}
+
+\mbox{\label{telldus_8c_aa482bc33779a87f57ab8efc2c1680c48}} 
+\index{telldus.\+c@{telldus.\+c}!checksum@{checksum}}
+\index{checksum@{checksum}!telldus.\+c@{telldus.\+c}}
+\subsubsection{checksum}
+{\footnotesize\ttfamily uint32\+\_\+t checksum}
+
+\mbox{\label{telldus_8c_a2a3cc1f79e0752aca2a7f2e9ec599367}} 
+\index{telldus.\+c@{telldus.\+c}!count32@{count32}}
+\index{count32@{count32}!telldus.\+c@{telldus.\+c}}
+\subsubsection{count32}
+{\footnotesize\ttfamily uint8\+\_\+t count32}
+
+\mbox{\label{telldus_8c_a85b7a7f21b6108b69872839e2509cd67}} 
+\index{telldus.\+c@{telldus.\+c}!crc@{crc}}
+\index{crc@{crc}!telldus.\+c@{telldus.\+c}}
+\subsubsection{crc}
+{\footnotesize\ttfamily uint32\+\_\+t crc}
+
+\mbox{\label{telldus_8c_a63e50a2e0b7cabca46708600132f5a6e}} 
+\index{telldus.\+c@{telldus.\+c}!crc\+Count@{crc\+Count}}
+\index{crc\+Count@{crc\+Count}!telldus.\+c@{telldus.\+c}}
+\subsubsection{crc\+Count}
+{\footnotesize\ttfamily uint8\+\_\+t crc\+Count = 0}
+
+\mbox{\label{telldus_8c_a564cf673e2894bf56a58a674e8c8d6d3}} 
+\index{telldus.\+c@{telldus.\+c}!display\+String@{display\+String}}
+\index{display\+String@{display\+String}!telldus.\+c@{telldus.\+c}}
+\subsubsection{display\+String}
+{\footnotesize\ttfamily char display\+String[10]}
+
+\mbox{\label{telldus_8c_a539c13e40748f42d15b201693d0fcec3}} 
+\index{telldus.\+c@{telldus.\+c}!Humidity@{Humidity}}
+\index{Humidity@{Humidity}!telldus.\+c@{telldus.\+c}}
+\subsubsection{Humidity}
+{\footnotesize\ttfamily uint16\+\_\+t Humidity}
+
+\mbox{\label{telldus_8c_ab29e26abd890b0383b6a0d1921219e2b}} 
+\index{telldus.\+c@{telldus.\+c}!precount@{precount}}
+\index{precount@{precount}!telldus.\+c@{telldus.\+c}}
+\subsubsection{precount}
+{\footnotesize\ttfamily uint8\+\_\+t precount}
+
+\mbox{\label{telldus_8c_ab51cda2ab2ff5d0ec5695be68ed707ba}} 
+\index{telldus.\+c@{telldus.\+c}!save32@{save32}}
+\index{save32@{save32}!telldus.\+c@{telldus.\+c}}
+\subsubsection{save32}
+{\footnotesize\ttfamily bool save32 = false}
+
+\mbox{\label{telldus_8c_a297bb568f618f66daf1add5dc25ae1fb}} 
+\index{telldus.\+c@{telldus.\+c}!Sensor\+ID@{Sensor\+ID}}
+\index{Sensor\+ID@{Sensor\+ID}!telldus.\+c@{telldus.\+c}}
+\subsubsection{Sensor\+ID}
+{\footnotesize\ttfamily uint16\+\_\+t Sensor\+ID}
+
+\mbox{\label{telldus_8c_a8944332f3df618eeb1e6ac57a7e2d296}} 
+\index{telldus.\+c@{telldus.\+c}!telldus32@{telldus32}}
+\index{telldus32@{telldus32}!telldus.\+c@{telldus.\+c}}
+\subsubsection{telldus32}
+{\footnotesize\ttfamily uint32\+\_\+t telldus32}
+
+\mbox{\label{telldus_8c_a9fb78358ae4b0a049a0d1b37dc4cffec}} 
+\index{telldus.\+c@{telldus.\+c}!temp@{temp}}
+\index{temp@{temp}!telldus.\+c@{telldus.\+c}}
+\subsubsection{temp}
+{\footnotesize\ttfamily double temp}
+
+\mbox{\label{telldus_8c_ad389e5a23077ca8d6548dffd7f5ec1c1}} 
+\index{telldus.\+c@{telldus.\+c}!Temperature@{Temperature}}
+\index{Temperature@{Temperature}!telldus.\+c@{telldus.\+c}}
+\subsubsection{Temperature}
+{\footnotesize\ttfamily uint16\+\_\+t Temperature}
+
+\mbox{\label{telldus_8c_a4c5cd065abbdc86eefb7ada4ee1637bf}} 
+\index{telldus.\+c@{telldus.\+c}!wait\+For\+Zero@{wait\+For\+Zero}}
+\index{wait\+For\+Zero@{wait\+For\+Zero}!telldus.\+c@{telldus.\+c}}
+\subsubsection{wait\+For\+Zero}
+{\footnotesize\ttfamily bool wait\+For\+Zero = false}
+

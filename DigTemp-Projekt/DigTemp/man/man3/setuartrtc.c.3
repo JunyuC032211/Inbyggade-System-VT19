@@ -1,0 +1,129 @@
+.TH "Src/setuartrtc.c" 3 "Fri Mar 9 2018" "Version 1.2" "DoxyTemp" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Src/setuartrtc.c \- setUartRtc is initializing the clock to a value set by UART  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'setuartrtc\&.h'\fP
+.br
+\fC#include 'gpio\&.h'\fP
+.br
+\fC#include 'usart\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'stm32f3xx_hal\&.h'\fP
+.br
+\fC#include 'rtc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetUartRtc\fP ()"
+.br
+.ti -1c
+.RI "void \fBsendBluetooth\fP (double \fBtemp\fP, uint16_t \fBHumidity\fP)"
+.br
+.ti -1c
+.RI "void \fBHAL_UART_TxCpltCallback\fP (UART_HandleTypeDef *UartHandle)"
+.br
+.ti -1c
+.RI "void \fBHAL_UART_RxCpltCallback\fP (UART_HandleTypeDef *UartHandle)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "RTC_HandleTypeDef \fBhrtc\fP"
+.br
+.ti -1c
+.RI "RTC_TimeTypeDef \fBsTime\fP"
+.br
+.ti -1c
+.RI "RTC_DateTypeDef \fBsDate\fP"
+.br
+.ti -1c
+.RI "ITStatus \fBUartReady\fP = RESET"
+.br
+.ti -1c
+.RI "uint8_t \fBBuffer\fP [] = 'Enter time as 112233 for 11h:22m:33s\&.\\n \\r'"
+.br
+.ti -1c
+.RI "uint8_t \fBClock\fP [6]"
+.br
+.ti -1c
+.RI "uint8_t \fBhour\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBmin\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBsec\fP = 0"
+.br
+.ti -1c
+.RI "char \fBsendBlue\fP [27]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+setUartRtc is initializing the clock to a value set by UART 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Johan Hanssen 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+26-February-2018 The function setUartRtc is called before the while(1) loop in main to set up the clock to the users request set by UART communication\&. 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void HAL_UART_RxCpltCallback (UART_HandleTypeDef * UartHandle)"
+
+.SS "void HAL_UART_TxCpltCallback (UART_HandleTypeDef * UartHandle)"
+
+.SS "void sendBluetooth (double temp, uint16_t Humidity)"
+
+.SS "void setUartRtc ()"
+
+.SH "Variable Documentation"
+.PP 
+.SS "uint8_t Buffer[] = 'Enter time as 112233 for 11h:22m:33s\&.\\n \\r'"
+
+.SS "uint8_t Clock[6]"
+
+.SS "uint8_t hour = 0"
+
+.SS "RTC_HandleTypeDef hrtc"
+
+.SS "uint8_t min = 0"
+
+.SS "RTC_DateTypeDef sDate"
+
+.SS "uint8_t sec = 0"
+
+.SS "char sendBlue[27]"
+
+.SS "RTC_TimeTypeDef sTime"
+
+.SS "ITStatus UartReady = RESET"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DoxyTemp from the source code\&.

@@ -1,0 +1,60 @@
+\section{Src/display.c File Reference}
+\label{display_8c}\index{Src/display.\+c@{Src/display.\+c}}
+
+
+Display handles the initialization of the display and communication.  
+
+
+{\ttfamily \#include \char`\"{}display.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spi.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ init\+Display} (void)
+\item 
+void \textbf{ send\+Display} (uint8\+\_\+t rs, uint8\+\_\+t rw, uint8\+\_\+t db)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ data} [3] =\{0b00000000,0b00000000,0b00000000\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Display handles the initialization of the display and communication. 
+
+\begin{DoxyAuthor}{Author}
+Johan Hanssen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26-\/\+February-\/2018 Two functions where one handles the initialization of the display and the second is used for general communication with the display. 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\label{display_8c_a2b00342dede324282512c2d2b17f58b8}} 
+\index{display.\+c@{display.\+c}!init\+Display@{init\+Display}}
+\index{init\+Display@{init\+Display}!display.\+c@{display.\+c}}
+\subsubsection{init\+Display()}
+{\footnotesize\ttfamily void init\+Display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{display_8c_a014b0bcd86f1f4e7a9bf3e3687963f9b}} 
+\index{display.\+c@{display.\+c}!send\+Display@{send\+Display}}
+\index{send\+Display@{send\+Display}!display.\+c@{display.\+c}}
+\subsubsection{send\+Display()}
+{\footnotesize\ttfamily void send\+Display (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{rs,  }\item[{uint8\+\_\+t}]{rw,  }\item[{uint8\+\_\+t}]{db }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{display_8c_aa99be7b8b4274b2256b394ea7bf80762}} 
+\index{display.\+c@{display.\+c}!data@{data}}
+\index{data@{data}!display.\+c@{display.\+c}}
+\subsubsection{data}
+{\footnotesize\ttfamily uint8\+\_\+t data[3] =\{0b00000000,0b00000000,0b00000000\}}
+

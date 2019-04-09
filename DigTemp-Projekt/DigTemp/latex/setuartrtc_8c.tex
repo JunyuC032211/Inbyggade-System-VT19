@@ -1,0 +1,151 @@
+\section{Src/setuartrtc.c File Reference}
+\label{setuartrtc_8c}\index{Src/setuartrtc.\+c@{Src/setuartrtc.\+c}}
+
+
+set\+Uart\+Rtc is initializing the clock to a value set by U\+A\+RT  
+
+
+{\ttfamily \#include \char`\"{}setuartrtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stm32f3xx\+\_\+hal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Uart\+Rtc} ()
+\item 
+void \textbf{ send\+Bluetooth} (double \textbf{ temp}, uint16\+\_\+t \textbf{ Humidity})
+\item 
+void \textbf{ H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$Uart\+Handle)
+\item 
+void \textbf{ H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$Uart\+Handle)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+R\+T\+C\+\_\+\+Handle\+Type\+Def \textbf{ hrtc}
+\item 
+R\+T\+C\+\_\+\+Time\+Type\+Def \textbf{ s\+Time}
+\item 
+R\+T\+C\+\_\+\+Date\+Type\+Def \textbf{ s\+Date}
+\item 
+I\+T\+Status \textbf{ Uart\+Ready} = R\+E\+S\+ET
+\item 
+uint8\+\_\+t \textbf{ Buffer} [$\,$] = \char`\"{}Enter time as 112233 for 11h\+:22m\+:33s.\textbackslash{}n \textbackslash{}r\char`\"{}
+\item 
+uint8\+\_\+t \textbf{ Clock} [6]
+\item 
+uint8\+\_\+t \textbf{ hour} = 0
+\item 
+uint8\+\_\+t \textbf{ min} = 0
+\item 
+uint8\+\_\+t \textbf{ sec} = 0
+\item 
+char \textbf{ send\+Blue} [27]
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+set\+Uart\+Rtc is initializing the clock to a value set by U\+A\+RT 
+
+\begin{DoxyAuthor}{Author}
+Johan Hanssen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+26-\/\+February-\/2018 The function set\+Uart\+Rtc is called before the while(1) loop in main to set up the clock to the users request set by U\+A\+RT communication. 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\label{setuartrtc_8c_a64a600961d9507504c5d6af42adc6c67}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+\mbox{\label{setuartrtc_8c_a7fdc88cab173073f3ee9d4af0b4e8c5f}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+\mbox{\label{setuartrtc_8c_a791e1a02a5f2e8d4ae3a1378966fa5fc}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!send\+Bluetooth@{send\+Bluetooth}}
+\index{send\+Bluetooth@{send\+Bluetooth}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{send\+Bluetooth()}
+{\footnotesize\ttfamily void send\+Bluetooth (\begin{DoxyParamCaption}\item[{double}]{temp,  }\item[{uint16\+\_\+t}]{Humidity }\end{DoxyParamCaption})}
+
+\mbox{\label{setuartrtc_8c_a55c58e7cd34389fff331339901039a1f}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!set\+Uart\+Rtc@{set\+Uart\+Rtc}}
+\index{set\+Uart\+Rtc@{set\+Uart\+Rtc}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{set\+Uart\+Rtc()}
+{\footnotesize\ttfamily void set\+Uart\+Rtc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{setuartrtc_8c_a2c59318a0685d6cb574309b589b669b2}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{Buffer}
+{\footnotesize\ttfamily uint8\+\_\+t Buffer[$\,$] = \char`\"{}Enter time as 112233 for 11h\+:22m\+:33s.\textbackslash{}n \textbackslash{}r\char`\"{}}
+
+\mbox{\label{setuartrtc_8c_a8bda290d61e41b33e2e5e7986dd7bd09}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!Clock@{Clock}}
+\index{Clock@{Clock}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{Clock}
+{\footnotesize\ttfamily uint8\+\_\+t Clock[6]}
+
+\mbox{\label{setuartrtc_8c_ae5af4ff48939d13d480f87e56a9385d6}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!hour@{hour}}
+\index{hour@{hour}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{hour}
+{\footnotesize\ttfamily uint8\+\_\+t hour = 0}
+
+\mbox{\label{setuartrtc_8c_aa0c7fca836406ade332e1e3f1039d8ab}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!hrtc@{hrtc}}
+\index{hrtc@{hrtc}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{hrtc}
+{\footnotesize\ttfamily R\+T\+C\+\_\+\+Handle\+Type\+Def hrtc}
+
+\mbox{\label{setuartrtc_8c_ac9b481208b43f7c37ed25e446bdec692}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!min@{min}}
+\index{min@{min}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{min}
+{\footnotesize\ttfamily uint8\+\_\+t min = 0}
+
+\mbox{\label{setuartrtc_8c_aa805acf5185e2a95f250a2da91bf84e0}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!s\+Date@{s\+Date}}
+\index{s\+Date@{s\+Date}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{s\+Date}
+{\footnotesize\ttfamily R\+T\+C\+\_\+\+Date\+Type\+Def s\+Date}
+
+\mbox{\label{setuartrtc_8c_ad1696900026b287a87c563b733a21bc3}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!sec@{sec}}
+\index{sec@{sec}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{sec}
+{\footnotesize\ttfamily uint8\+\_\+t sec = 0}
+
+\mbox{\label{setuartrtc_8c_a9af95d2d67115be7bc79de37dc65be7c}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!send\+Blue@{send\+Blue}}
+\index{send\+Blue@{send\+Blue}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{send\+Blue}
+{\footnotesize\ttfamily char send\+Blue[27]}
+
+\mbox{\label{setuartrtc_8c_afed4f29eda0f2d0900a0b347e29a8c91}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!s\+Time@{s\+Time}}
+\index{s\+Time@{s\+Time}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{s\+Time}
+{\footnotesize\ttfamily R\+T\+C\+\_\+\+Time\+Type\+Def s\+Time}
+
+\mbox{\label{setuartrtc_8c_a9b2653317ef098565aa2c15e5669ec4b}} 
+\index{setuartrtc.\+c@{setuartrtc.\+c}!Uart\+Ready@{Uart\+Ready}}
+\index{Uart\+Ready@{Uart\+Ready}!setuartrtc.\+c@{setuartrtc.\+c}}
+\subsubsection{Uart\+Ready}
+{\footnotesize\ttfamily I\+T\+Status Uart\+Ready = R\+E\+S\+ET}
+

@@ -1,0 +1,68 @@
+.TH "Src/display.c" 3 "Fri Mar 9 2018" "Version 1.2" "DoxyTemp" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Src/display.c \- Display handles the initialization of the display and communication\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'display\&.h'\fP
+.br
+\fC#include 'gpio\&.h'\fP
+.br
+\fC#include 'spi\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitDisplay\fP (void)"
+.br
+.ti -1c
+.RI "void \fBsendDisplay\fP (uint8_t rs, uint8_t rw, uint8_t db)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBdata\fP [3] ={0b00000000,0b00000000,0b00000000}"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Display handles the initialization of the display and communication\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Johan Hanssen 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+1\&.2 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+26-February-2018 Two functions where one handles the initialization of the display and the second is used for general communication with the display\&. 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void initDisplay (void)"
+
+.SS "void sendDisplay (uint8_t rs, uint8_t rw, uint8_t db)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "uint8_t data[3] ={0b00000000,0b00000000,0b00000000}"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DoxyTemp from the source code\&.
