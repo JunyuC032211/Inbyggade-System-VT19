@@ -29,8 +29,8 @@ RTC_HandleTypeDef hrtc;
 /* RTC init function */
 void MX_RTC_Init(void)
 {
-  RTC_TimeTypeDef sTime;
-  RTC_DateTypeDef sDate;
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef sDate = {0};
 
   /** Initialize RTC Only 
   */
@@ -45,9 +45,6 @@ void MX_RTC_Init(void)
   {
     Error_Handler();
   }
-  else{
-    HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_10);
-  }
 
   /* USER CODE BEGIN Check_RTC_BKUP */
  if (HAL_RTCEx_BKUPRead(&hrtc,RTC_BKP_DR0) != 0x32F2)
@@ -56,32 +53,31 @@ void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date 
   */
-    sTime.Hours = 0x0;
-    sTime.Minutes = 0x0;
-    sTime.Seconds = 0x0;
-    sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-    sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-    if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
-    {
-      Error_Handler();
-    }
-    sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-    sDate.Month = RTC_MONTH_JANUARY;
-    sDate.Date = 0x1;
-    sDate.Year = 0x19;
-
-    if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
-    {
-      Error_Handler();
-    }
-    HAL_RTCEx_BKUPWrite(&hrtc,RTC_BKP_DR0,0x32F2);
+  sTime.Hours = 0x0;
+  sTime.Minutes = 0x0;
+  sTime.Seconds = 0x0;
+  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
   }
+  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
+  sDate.Month = RTC_MONTH_JANUARY;
+  sDate.Date = 0x1;
+  sDate.Year = 0x19;
+
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
 }
 
-void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
+void HAL_RTC_MspInit(RTC_HandleTypeDef* rtcHandle)
 {
 
-  if(hrtc->Instance==RTC)
+  if(rtcHandle->Instance==RTC)
   {
   /* USER CODE BEGIN RTC_MspInit 0 */
 
@@ -94,10 +90,10 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
   }
 }
 
-void HAL_RTC_MspDeInit(RTC_HandleTypeDef* hrtc)
+void HAL_RTC_MspDeInit(RTC_HandleTypeDef* rtcHandle)
 {
 
-  if(hrtc->Instance==RTC)
+  if(rtcHandle->Instance==RTC)
   {
   /* USER CODE BEGIN RTC_MspDeInit 0 */
 
